@@ -35,7 +35,7 @@ const SignupScreen = ({ navigation }) => {
                 />
 
                 <AuthForm
-                    headerText="Tracker"
+                    headerText="Traqueur"
                     errorMessage={ state.errorMessage }
                     onSubmit={ signup }
                     titleStyle={ titleStyle }

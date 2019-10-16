@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { Text, StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-elements';
+import { TextInput, TouchableOpacity, StyleSheet, View, Text } from 'react-native';
+import { Button, Divider } from 'react-native-elements';
 import { SafeAreaView } from 'react-navigation';
 import { Spacer } from '../components';
 import { Context as AuthContext } from '../context/AuthContext';
@@ -11,17 +11,37 @@ const AccountScreen = () => {
 
     return (
         <SafeAreaView>
-            <Spacer>
-                <Button 
-                    title="Sign Out"
-                    onPress={ signout }
-                />
-            </Spacer>
+          <Spacer>
+            <Divider/>
+
+              <TouchableOpacity style={styles.fieldStyle}>
+                <Text>
+                  Email
+
+                  <Text style={{ justifyContent: 'flex-end' }}> Email</Text>
+                </Text>
+              </TouchableOpacity>
+
+              <Divider/>
+          </Spacer>
+
+          <Spacer>
+              <Button 
+                  title="Sign Out"
+                  onPress={ signout }
+              />
+          </Spacer>
         </SafeAreaView>
     );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  fieldStyle: {
+    fontSize: 20,
+    marginTop: 15,
+    marginBottom: 15
+  }
+});
 
 AccountScreen.navigationOptions = () => {
     return {

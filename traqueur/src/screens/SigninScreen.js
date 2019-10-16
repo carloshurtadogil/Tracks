@@ -33,7 +33,7 @@ const SigninScreen = () => {
                 <Spacer/>
 
                 <AuthForm
-                    headerText="Tracker"
+                    headerText="Traqueur"
                     errorMessage={ state.errorMessage }
                     onSubmit={ signin }
                     titleStyle={ titleStyle }
