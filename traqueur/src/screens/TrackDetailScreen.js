@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Text, StyleSheet, View } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Button, Overlay } from 'react-native-elements';
 import { Context as TrackContext } from '../context/TrackContext';
 import MapView, { Polyline } from 'react-native-maps';
 import { Spacer } from '../components';
@@ -13,6 +13,7 @@ const monthNames = [
 const TrackDetailScreen = ({ navigation }) => {
     const _id = navigation.getParam('_id');
     const { state } = useContext(TrackContext);
+    const [ visible, setVisible ] = useState(false);
 
     const track = state.find(t => t._id === _id);
     var date = new Date(track.date);
@@ -51,7 +52,7 @@ const TrackDetailScreen = ({ navigation }) => {
             <Spacer>
                 <Button 
                     title="Rename"
-                    style={ buttonStyle }
+                    style={ () => setVisible(true) }
                 />
             </Spacer>
 
